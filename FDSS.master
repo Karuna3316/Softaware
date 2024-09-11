@@ -1,0 +1,277 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FDSS.master.cs" Inherits="Master_FDSS" %>
+
+<!DOCTYPE html>
+
+<html>
+<head id="Head1" runat="server">
+    <title>FDSS | ERP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- jQuery UI CSS File -->
+    <link rel="icon" href="files/assets/images/FDSS_FAV.png" type="image/x-icon" />
+    <%--<link href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<!-- jQuery Reference -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+<!-- jQuery UI Reference -->
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>--%>
+
+
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="files/assets/icon/themify-icons/themify-icons.css">
+
+    <!-- jQuery Reference -->
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <!-- jQuery UI Reference -->
+    <script src="js/jquery-ui-1.8.24.min.js" type="text/javascript"></script>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <%--<link href="assets/plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet"
+        type="text/css" />--%>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
+    <style>
+        .ion-document-text {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        div.dataTables_wrapper div.dataTables_info {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        i {
+            font-size: 22px;
+        }
+
+        #myDiv {
+            float: left;
+            font-size: 16px;
+            font-weight: 600;
+            padding-top: 20px;
+            color: #009933;
+        }
+
+        .container-fluid {
+            background-color: #f5f5f5 !important;
+        }
+
+        .card-block {
+            border-radius: 6px !important;
+            background-color: white;
+            border: none !important;
+        }
+
+        div.dataTables_wrapper div.dataTables_length label {
+            font-weight: normal;
+            text-align: left;
+            text-transform: capitalize;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+         .btn-info {
+            padding: 7px 11px !important;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <!-- BEGIN TOP NAV -->
+            <div class="top-navbar">
+                <div class="top-navbar-inner">
+                    <!-- Begin Logo brand -->
+                    <div class="logo-brand">
+                        <img src="images/fdss.png" alt="Fdss image" />
+                    </div>
+                    <!-- /.logo-brand -->
+                    <!-- End Logo brand -->
+
+                    <div class="top-nav-content" style="background-color: #f1f1f1;">
+                        <div id="myDiv"></div>
+                        <!-- Begin button sidebar left toggle #3B322B;-->
+                        <div class="btn-collapse-sidebar-left">
+                            <%--<i class="fa fa-long-arrow-right icon-dinamic"></i>--%>
+                        </div>
+                        <!-- /.btn-collapse-sidebar-left -->
+                        <!-- End button sidebar left toggle -->
+
+                        <!-- Begin user session nav -->
+                        <ul class="nav-user navbar-right">
+                            <li class="dropdown" style="">
+                                <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown" style="color: black;font-size:16px;">Hi, <strong>
+                                    
+                                    <asp:Label ID="lblUserName" runat="server" ForeColor="black" Font-Size="16px"></asp:Label></strong>
+                                </a>
+                                <ul class="dropdown-menu square info margin-list-rounded with-triangle">
+                                    <li class="divider"></li>
+
+                                    <li><a href="ChangePassword.aspx" class="toggle : tooltip;"><i class="fa fa-unlock"></i>Change Password</a></li>
+                                    <li><a href="Login.aspx" class="toggle : tooltip;"><i class="feather icon-log-out"></i>Logout</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- End user session nav -->
+                    </div>
+                    <!-- /.top-nav-content -->
+                </div>
+                <!-- /.top-navbar-inner -->
+            </div>
+            <!-- /.top-navbar -->
+            <!-- END TOP NAV -->
+
+
+            <div class="sidebar-left-new toggle">
+                <div class="btn-collapse-sidebar-left-new">
+                    <asp:Image ID="imgCMS" runat="server" CssClass="CMSView" AlternateText="KP" ImageUrl="~/assets/img/view_cms.png" />
+                </div>
+            </div>
+            <div class="sidebar-left sidebar-nicescroller" style="overflow: auto; background-color: #FFF; color: #000;">
+                <div class="btn-collapse-sidebar-left">
+                    <i class="fa fa-arrow-circle-o-left"></i>
+                </div>
+                <ul class="sidebar-menu" id="ULMenuList" runat="server">
+                    <%--<li><asp:LinkButton ID="lnkHome" runat="server" ><i class="fa fa-home icon-sidebar"></i>&nbsp;&nbsp;Home</asp:LinkButton></li>--%>
+                </ul>
+            </div>
+            <!-- /.sidebar-left -->
+
+            <div class="modal fade" id="UplodaImage" tabindex="-1" role="dialog" aria-labelledby="DefaultModalLabel" aria-hidden="true" style="background-color: #3B322B;">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="box-shadow: 0px 0px 5px 0px #333 inset;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="DefaultModalLabel" align="center">Upload Profile Picture </h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" style="padding-top: 0px !important;">Upload</label>
+                                <div class="col-sm-6">
+                                    <asp:FileUpload ID="fupProfilePic" runat="server" onchange="PreviewImage();" />
+                                    <p class="help-block">
+                                        <asp:RegularExpressionValidator ID="RE_fupProfilePic" runat="server"
+                                            ErrorMessage="Upload valid image" Display="Dynamic"
+                                            ControlToValidate="fupProfilePic" SetFocusOnError="True"
+                                            ValidationGroup="ValProfilePics"
+                                            ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif|.bmp|.PNG)$"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="rfvfupProfilePic" runat="server"
+                                            ErrorMessage="Upload Profile Picture" ControlToValidate="fupProfilePic"
+                                            ValidationGroup="ValProfilePics" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    </p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:Image ID="ProfilePicPreview" runat="server" CssClass="img-circle" AlternateText="No Image" Style="top: -5px; width: 40px; height: 40px;" ImageUrl="~/assets/img/avatar/avatar_white.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="text-align: center !important;">
+                            <asp:Button ID="btnUPProfilePic" runat="server" Text="Upload" CssClass="btn btn-primary btn-xs"
+                                TabIndex="2" ValidationGroup="ValProfilePics" />
+                        </div>
+                        <!-- /.modal-footer -->
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-doalog -->
+            </div>
+            <!-- /#DefaultModal -->
+
+
+            <div class="page-content" style="min-height: 920px; background-color: #f5f5f5;">
+                <div class="container-fluid">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- /.page-content -->
+            <!-- BEGIN FOOTER -->
+            <footer>
+                <a href="#fakelink"><b>Powered by Fdss</b></a>
+                <br />
+            </footer>
+            <!-- END FOOTER -->
+        </div>
+        <!-- /.wrapper -->
+    </form>
+
+
+    <%--    <script src="assets/js/jquery.min.js" type="text/javascript"></script>    
+    <script src="js/jquery-ui.js" type="text/javascript"></script>        
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/nicescroll/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/plugins/datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/datatable/js/bootstrap.datatable.js" type="text/javascript"></script>--%>
+    <script type="text/javascript" src="js/arrow37.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            if ($('[data-toggle="tooltip"]').length > 0)
+            { $('[data-toggle="tooltip"]').tooltip(); }
+        });
+
+        function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("fupProfilePic").files[0]);
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("ProfilePicPreview").src = oFREvent.target.result;
+            };
+        }
+
+    </script>
+
+    <script src="assets/js/apps.js" type="text/javascript"></script>
+    <script>
+        function showDateTime() {
+            var myDiv = document.getElementById("myDiv");
+
+            var date = new Date();
+            var dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var monthNames = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ];
+            var dayName = dayList[date.getDay()];
+            var monthName = monthNames[date.getMonth()];
+            var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+
+            var time = hour + ":" + min + ":" + sec;
+            myDiv.innerText = `${today} `;
+        }
+        setInterval(showDateTime, 1000);
+
+
+    </script>
+</body>
+</html>
